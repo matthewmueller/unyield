@@ -3,7 +3,34 @@
 
   allow generators functions to accept callbacks
 
-## License 
+## Example
+
+```js
+var fn = unyield(function *() {
+  return yield wait(100);
+});
+
+fn(function(err, ms) {
+  assert(!err)
+  assert(ms >= 100);
+  done();
+});
+```
+
+## API
+
+### unyield(gen)
+
+Allow a generator to either be yieldable or be a callback function. Passes arguments and context through.
+
+## Test
+
+```
+npm install
+make test
+```
+
+## License
 
 (The MIT License)
 
