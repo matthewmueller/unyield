@@ -3,7 +3,6 @@
  */
 
 var co = require('co');
-var slice = [].slice;
 
 /**
  * Expose `unyield`
@@ -21,8 +20,7 @@ module.exports = unyield;
 
 function unyield(gen) {
   return function() {
-    var args = slice.call(arguments);
-    var last = args[args.length - 1];
+    var last = arguments[arguments.length - 1];
     var fn = 'function' == typeof last && last;
 
     return fn
